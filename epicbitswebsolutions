@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EpicBits Web Solutions</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7ff;
+      color: #333;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #4a90e2;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #cce5ff;
+    }
+
+    main {
+      flex: 1;
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      margin-bottom: 40px;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(74,144,226,0.15);
+    }
+
+    h2 {
+      color: #4a90e2;
+      margin-bottom: 15px;
+      border-bottom: 3px solid #4a90e2;
+      padding-bottom: 5px;
+      letter-spacing: 1.2px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    /* Template images - CSS shapes */
+    .template-gallery {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .template {
+      width: 220px;
+      height: 140px;
+      background: #4a90e2;
+      border-radius: 15px;
+      position: relative;
+      box-shadow: 0 6px 15px rgba(74,144,226,0.25);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .template:hover {
+      transform: scale(1.05);
+    }
+
+    .template .header {
+      height: 30px;
+      background: #3a70c2;
+      border-radius: 15px 15px 0 0;
+    }
+
+    .template .content {
+      padding: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+      position: absolute;
+      bottom: 10px;
+      left: 15px;
+    }
+
+    /* Pricing Table */
+    .pricing-table {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .price-card {
+      background: #d6e4ff;
+      border-radius: 12px;
+      width: 260px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(74,144,226,0.3);
+      text-align: center;
+      transition: background 0.3s ease;
+      cursor: default;
+    }
+
+    .price-card:hover {
+      background: #a8c5ff;
+    }
+
+    .price-card h3 {
+      margin-bottom: 12px;
+      color: #204080;
+      font-size: 1.3rem;
+    }
+
+    .price-card .price {
+      font-size: 2rem;
+      color: #1144bb;
+      margin-bottom: 15px;
+    }
+
+    .price-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+      text-align: left;
+    }
+
+    .price-card ul li:before {
+      content: "✔";
+      color: #4a90e2;
+      margin-right: 8px;
+    }
+
+    /* Contact Form Section */
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 10px;
+      font-size: 1rem;
+      border: 2px solid #4a90e2;
+      border-radius: 6px;
+      resize: vertical;
+    }
+
+    textarea {
+      min-height: 100px;
+    }
+
+    button {
+      background: #4a90e2;
+      color: white;
+      padding: 12px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #3564b8;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 15px;
+      background: #e1e7ff;
+      color: #4567b8;
+      box-shadow: inset 0 1px 3px #a2b3ff;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .template-gallery, .pricing-table {
+        flex-direction: column;
+        gap: 25px;
+      }
+      header h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>EpicBits Web Solutions</h1>
+  <nav>
+    <a href="#about">About Me</a>
+    <a href="#services">Services</a>
+    <a href="#templates">Templates</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I am a passionate student entrepreneur who started EpicBits Web Solutions in 2025. As a 9th grade student, I love technology and helping others create websites that grow their business or share useful information. I understand the digital world and want to help you get your ideas online quickly and effectively.</p>
+    <p>Whether you want a simple informational site or a business platform to attract more customers, I am here to guide you and make it happen.</p>
+  </section>
+
+  <section id="services">
+    <h2>My Services</h2>
+    <ul>
+      <li>Custom Website Design & Development</li>
+      <li>Responsive and Mobile-Friendly Layouts</li>
+      <li>Basic SEO Setup to Boost Your Reach</li>
+      <li>Website Maintenance and Updates</li>
+      <li>Consultation on Digital Presence</li>
+    </ul>
+  </section>
+
+  <section id="templates">
+    <h2>Website Templates</h2>
+    <div class="template-gallery">
+      <div class="template" tabindex="0" aria-label="Template 1: Business">
+        <div class="header"></div>
+        <div class="content">Business Template</div>
+      </div>
+      <div class="template" tabindex="0" aria-label="Template 2: Portfolio">
+        <div class="header"></div>
+        <div class="content">Portfolio Template</div>
+      </div>
+      <div class="template" tabindex="0" aria-label="Template 3: Informational">
+        <div class="header"></div>
+        <div class="content">Informational Template</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2>Pricing (INR)</h2>
+    <div class="pricing-table">
+      <div class="price-card">
+        <h3>Basic Website</h3>
+        <div class="price">₹3,000</div>
+        <ul>
+          <li>Single-Page Informational Site</li>
+          <li>Mobile-Friendly Design</li>
+          <li>3 Revisions Included</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <h3>Standard Website</h3>
+        <div class="price">₹7,000</div>
+        <ul>
+          <li>Up to 5 Pages</li>
+          <li>SEO Basics</li>
+          <li>Custom Graphics</li>
+          <li>Email Setup Help</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <h3>Business Website</h3>
+        <div class="price">₹12,000</div>
+        <ul>
+          <li>Up to 10 Pages</li>
+          <li>SEO & Analytics</li>
+          <li>Maintenance for 3 months</li>
+          <li>Customer Support Chat Setup</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>If you want to discuss your website needs or have any questions, feel free to reach out!</p>
+    <p><strong>Phone:</strong> <a href="tel:+919690086545">9690086545</a></p>
+    <p><strong>Email:</strong> <a href="mailto:epicbits44@gmail.com">epicbits44@gmail.com</a></p>
+
+    <form 
+      action="https://getform.io/f/aejekolb"
+      method="POST" 
+      aria-label="Contact form"
+    >
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required placeholder="Enter your full name" />
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required placeholder="Enter your email address" />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required placeholder="Write your message here"></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 EpicBits Web Solutions. All rights reserved.
+</footer>
+
+</body>
+</html>
